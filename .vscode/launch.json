@@ -5,8 +5,16 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceRoot}"
+            "url": "http://localhost",
+            "webRoot": "${workspaceRoot}/build"
+        },
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach Chrome",
+            "url": "http://localhost",
+            "port": 80,
+            "webRoot": "${workspaceRoot}/build"
         }
     ]
 }

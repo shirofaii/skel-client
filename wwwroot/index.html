@@ -2,15 +2,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Skel</title>
-    <link rel="stylesheet" type="text/css" href="bundle.css">
+    <link rel="stylesheet" type="text/css" href="css/antd.css">
     <link rel="icon" href="favicon.svg" type="image/svg" />
 </head>
 <body ondragstart="return false;" ondrop="return false;">
     <div id="root"></div>
 
-    <script src="lib/react.js"></script>
-    <script src="lib/react-dom.js"></script>
-    
-    <script src="bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
+    <script>
+        require.config({
+            paths: {
+                'react': 'lib/react.min',
+                'react-dom': 'lib/react-dom.min',
+                'redux': 'lib/redux.min',
+                'react-redux': 'lib/react-redux.min',
+                'antd': 'lib/antd-with-locales.min',
+                'lodash': 'lib/lodash.min',
+                'immutable': 'lib/immutable.min',
+                'redux-socket.io': 'lib/index',
+                'socket.io-client': 'lib/socket.io.slim'
+            }
+        })
+        require(['js/client/main']);
+    </script>
 </body>
 </html>
