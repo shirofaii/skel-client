@@ -1,23 +1,21 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import {rootReducer} from './reducers';
-import createSocketIoMiddleware from './redux-socket.io';
-import * as io from 'socket.io-client';
+import { createStore, applyMiddleware, compose, Store } from 'redux'
+import {rootReducer} from './reducers'
+import createSocketIoMiddleware from './redux-socket.io'
+import * as io from 'socket.io-client'
 
 export function createMainStore() {
-    const devTool =
-        typeof window === 'object' &&
-        window['__REDUX_DEVTOOLS_EXTENSION__'] ?
-            window['__REDUX_DEVTOOLS_EXTENSION__']() : f => f;
+    // tslint:disable-next-line:no-string-literal
+    const devTool = window['__REDUX_DEVTOOLS_EXTENSION__'] ? window['__REDUX_DEVTOOLS_EXTENSION__']() : compose
 
-    const socket = io('http://localhost');
-    const socketIoMiddleware = createSocketIoMiddleware(socket, 'server/');
+    const socket = io('http://localhost:1213')
+    const socketIoMiddleware = createSocketIoMiddleware(socket, 'server:')
 
     const enchancer = compose(
         applyMiddleware(socketIoMiddleware),
-        devTool
+        devTool,
     )
 
-    const store = createStore(rootReducer, enchancer);
+    const store = createStore(rootReducer, enchancer)
 
     return store
 }

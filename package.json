@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/react": "^15.6.2",
+    "@types/react-redux": "^5.0.5",
     "@types/requirejs": "^2.1.31",
     "gulp": "^3.9.1",
     "gulp-shell": "^0.6.3",

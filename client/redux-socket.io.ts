@@ -1,5 +1,5 @@
-
-/**
+/* tslint:disable */
+/*
 * Allows you to register actions that when dispatched, send the action to the
 * server via a socket.io socket.
 * `criteria` may be a function (type, action) that returns true if you wish to send the
